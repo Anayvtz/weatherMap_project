@@ -99,6 +99,7 @@ function getHumidity(data) {
     if (humidImg) {
         humidityRate.removeChild(humidImg);
     }
+
     const num = document.createElement("span");
     num.textContent = data.main.humidity;
     num.className = "humidNum";
