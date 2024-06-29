@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #010122;
+        }
+
+        .city {
+            width: 100vw;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .city #cityBtn {
+            border: none;
+            border-radius: 15%;
+            width: 100px;
+            height: 25px;
+            background-color: lightskyblue;
+            margin-top: 15px;
+        }
+
+        .city #cityName {
+            height: 25px;
+            background-color: lightskyblue;
+            margin-top: 15px;
+            margin-right: 15px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            color: lightskyblue;
+        }
+
+        .Img {
+            width: 130px;
+            height: 130px;
+            margin-top: 50px;
+        }
+
+        .box {
+            /*  display: flex; */
+            border-radius: 5%;
+            border: 2px solid lightskyblue;
+            margin: 15px;
+        }
+
+        .box h1 {
+            border-bottom: 2px solid lightskyblue;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        #celsiusWrapper {
+            display: flex;
+        }
+
+        #celsiusWrapper .celsiusInput {
+            width: 20vw;
+            height: 30vh;
+            margin: 15px;
+        }
+
+        #celsiusWrapper .celsiusInput #temp {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #celsiusWrapper .celsiusInput #otherTemp {
+            display: flex;
+        }
+
+        #celsiusWrapper .celsiusInput #otherTemp #minTemp {
+            border-right: 2px dashed lightskyblue;
+            margin-top: 80px;
+            padding-right: 5px;
+        }
+
+        #celsiusWrapper .celsiusInput #otherTemp #maxTemp {
+            border-right: 2px dashed lightskyblue;
+            margin-top: 80px;
+            padding-right: 5px;
+        }
+
+        #celsiusWrapper .celsiusInput #otherTemp #feelsLikeTemp {
+            margin-top: 80px;
+        }
+
+        #nowWrapper {
+            display: flex;
+        }
+
+        #nowWrapper #dateTime {
+            margin-right: 150px;
+        }
+
+        #nowWrapper #dateTime #time {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #nowWrapper #dateTime #date {
+            margin-top: 120px;
+            margin-left: 15px;
+            width: 120px;
+        }
+
+        #windWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wind #windDegreeWrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px dashed #262696;
+            margin-top: 50px;
+            text-align: center;
+            color: lightskyblue;
+        }
+
+        .wind #windDegreeWrapper #windDegree {
+            width: 100px;
+            height: 100px;
+            margin: 7px auto;
+            border-radius: 50%;
+            border: 2px solid lightskyblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wind #windSpeedWrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px dashed #262696;
+            margin-top: 50px;
+            text-align: center;
+            color: lightskyblue;
+        }
+
+        .wind #windSpeedWrapper #windSpeed {
+            width: 100px;
+            height: 100px;
+            margin: 7px auto;
+            border-radius: 50%;
+            border: 2px solid lightskyblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #humidityWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #humidityWrapper #humidityRateWrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #262696;
+            margin-top: 50px;
+            text-align: center;
+            color: lightskyblue;
+        }
+
+        #humidityWrapper #humidityRateWrapper #humidityRate {
+            width: 100px;
+            height: 100px;
+            margin: 7px auto;
+            border-radius: 50%;
+            border: 2px solid lightskyblue;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #sunRiseSetWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #sunRiseSetWrapper #sunRiseSetInfo {
+            display: flex;
+        }
+
+        #sunRiseSetWrapper #sunRiseSetInfo #sunrise {
+            width: 150px;
+            height: 30px;
+            border: none;
+            margin-left: 90px;
+        }
+
+        #sunRiseSetWrapper #sunRiseSetInfo #sunset {
+            width: 150px;
+            height: 30px;
+            border: none;
+        }
+
+        #sunriseImg {
+            width: 150px;
+            height: 150px;
+        }
+
+        #seaLvlWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #seaLvlInfo {
+            width: 200px;
+            height: 50px;
+            margin-left: 140px;
+            margin-top: 40px;
+        }
+
+        #seaLvlImg {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="city">
+        <input type="text" id="cityName">
+        <button id="cityBtn">check weather</button>
+    </div>
+    <div class="container">
+
+        <div class="box celsius">
+            <h1>Temperature</h1>
+            <div id="celsiusWrapper">
+                <div class="celsiusInput">
+                    <div id="temp"></div>
+                    <div id="otherTemp">
+                        <div id="minTemp">
+                            <h6>min</h6>
+                        </div>
+                        <div id="maxTemp">
+                            <h6>max</h6>
+                        </div>
+                        <div id="feelsLikeTemp">
+                            <h6>feels like</h6>
+                        </div>
+                    </div>
+                </div>
+                <img class="Img celsiusImg">
+            </div>
+        </div>
+
+        <div class="box now">
+            <h1>now</h1>
+            <div id="nowWrapper">
+                <div id="dateTime">
+                    <div id="time"></div>
+                    <div id="date"></div>
+                </div>
+                <img class="Img nowImg">
+            </div>
+        </div>
+
+        <div class="box wind">
+            <h1>wind</h1>
+            <div id="windWrapper">
+                <div id="windDegreeWrapper">
+                    <div id="windDegree">
+                        <h6>degree</h6>
+                    </div>
+                </div>
+                <div id="windSpeedWrapper">
+                    <div id="windSpeed">
+                        <h6>speed</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box humidity">
+            <h1>humidity</h1>
+            <div id="humidityWrapper">
+                <div id="humidityRateWrapper">
+                    <div id="humidityRate">
+                        <img id="humidityImg" src="./images/humidity.svg" alt="humidity">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box sunRiseSet">
+            <h1>sun rise & sun set</h1>
+            <div id="sunRiseSetWrapper">
+                <div id="sunRiseSetInfo">
+                    <div id="sunrise"></div>
+                    <div id="sunset"></div>
+                </div>
+                <img id="sunriseImg" src="./images/sunrise.svg" alt="sunrise">
+            </div>
+        </div>
+
+        <div class="box seaLevel">
+            <h1>sea level</h1>
+            <div id="seaLvlWrapper">
+                <div id="seaLvlInfo"></div>
+                <img id="seaLvlImg" src="./images/sea.svg" alt="sea waves">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="weatherMap.js"></script>
+</body>
+
+</html>
